@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" id="logo">💀 ec-nom</div>
+        <div class="calendar" id="calendar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+            </svg>
+        </div>
+        <button class="add-expense-btn">Add Expense</button>
+        <div class="profile">
+            <span>Hi,</span>
+        </div>
+    </nav>
+
+    <div class="profile-overview" id="profile-overview">
+        <h2>Profile Overview</h2>
+        
+        <div class="charts">
+            <div class="chart-container">
+                <canvas id="pie-chart"></canvas>
+            </div>
+            <br>
+            <br>
+            <hr class="liner" id="liner">
+            <br>
+            <br>
+            <div class="chart-container">
+                <canvas id="line-chart"></canvas>
+            </div>
+        </div>
+        <hr>
+        <div class="summary">
+            <p>Earned: ₹<span id="total-earned"> -- </span></p>
+            <hr>
+            <p>Spent: ₹<span id="total-spent"> -- </span></p>
+            <hr>
+            <p>Purse : ₹<span id="available-money"> -- </span></p>
+<hr>
+        </div>
+    </div>
+
+    <div class="calendar-container" id="calendar-container" style="display: none;">
+        <div class="calendar-header">
+            <select id="month-select">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10" selected>November</option>
+                <option value="11">December</option>
+            </select>
+            <div class="legend">
+                <span class="legend-item" style="background-color: #FF6384;"></span> 🍔
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span class="legend-item" style="background-color: #36A2EB;"></span> 🚗
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span class="legend-item" style="background-color: #FFCE56;"></span> 🛍️
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span class="legend-item" style="background-color: #4BC0C0;"></span> 🎬
+            </div>
+        </div>
+        <br><br>
+        <div class="calendar-grid" id="calendar-grid">
+            <!-- Calendar days will be generated here by JavaScript -->
+        </div>
+    </div>
+
+    <div class="overlay" id="transaction-overlay">
+        <div class="overlay-content">
+            <span id="selected-day"></span>
+            <div id="transaction-list">
+                <!-- Transactions will be displayed here -->
+            </div>
+            <button id="close-overlay">Close</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <form id="expense-form">
+                <div class="input-container">
+                    <input type="number" id="amount" name="amount" class="input" placeholder="       Amount" required>
+                </div>
+                <input type="text" id="transaction" name="transaction" class="input" placeholder="who ?" required>
+                <input type="text" id="description" name="description" class="input" placeholder="yap..." required>
+                <select id="category" name="category" class="input">
+                    <option value="food">🍔                     Food</option>
+                    <option value="transport">🚗                Travel</option>
+                    <option value="shopping">🛍️                 Shopping</option>
+                    <option value="entertainment">🎬            Friends</option>
+                </select>
+                <br>
+                <button type="submit">+</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
